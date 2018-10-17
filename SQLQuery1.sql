@@ -151,9 +151,9 @@ INSERT INTO tbl_species
 	('Grey wolf', 1, 102, 1, 5000, 2201, 'care_4')
 ;
 
-SELECT * FROM tbl_species;
+SELECT * FROM tbl_nutrition;
 
-SELECT * FROM tbl_species WHERE species_name = 'Jaguar';
+SELECT * FROM tbl_species WHERE species_name = 'Chicken';
 
 SELECT * FROM tbl_species WHERE species_name = 'Brown bear';
 
@@ -163,11 +163,15 @@ SELECT
 	 a6.nutrition_type, a7.care_type
 	 FROM tbl_species a1 /*Shorthand for "alias". This also
 	 eliminates the need to enter the "AS" statement. The purpose
-	 of aliases is to give a table or a column a temporary
+	 of assigning aliases is to give a table or a column a temporary
 	 name. It is often used to make column names more 
-	 readable. An alias only exists for the query's duration. */
-	 INNER JOIN tbl_animalia a2 ON a2.animalia_id = 
-	 a1.species_animalia
+	 readable. An alias only exists for the query's duration. In this 
+	 example, a1 is the alias for "tbl_species" */
+	 INNER JOIN tbl_animalia a2 ON /*When performing an inner join, you have to tell 
+	 how the table you joined relates to the table listed after the FROM statement. 
+	 In this example, we inner joined the "tbl_species" and "tbl_animalia" together.
+	 Look at your table columns if you're not sure how the various tables relate*/
+	 a2.animalia_id =  a1.species_animalia 
 	 INNER JOIN tbl_class a3 ON a3.class_id = a1.species_class
 	 INNER JOIN tbl_order a4 ON a4.order_id = a1.species_order
 	 INNER JOIN tbl_habitat a5 ON a5.habitat_id = a1.species_habitat

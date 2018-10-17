@@ -8,8 +8,9 @@ SELECT
 	 a3.class_type, a4.order_type, a5.habitat_type,
 	 a6.nutrition_type, a7.care_type
 	 FROM tbl_species a1
-	 INNER JOIN tbl_animalia a2 ON a2.animalia_id = 
-	 a1.species_animalia
+	 INNER JOIN tbl_animalia a2 ON  /*This clause tells how the 2 tables (in this 
+	 instance, tbl_animalia and tbl_species), relate to each other*/
+	 a2.animalia_id = a1.species_animalia
 	 INNER JOIN tbl_class a3 ON a3.class_id = a1.species_class
 	 INNER JOIN tbl_order a4 ON a4.order_id = a1.species_order
 	 INNER JOIN tbl_habitat a5 ON a5.habitat_id = a1.species_habitat
